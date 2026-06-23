@@ -42,7 +42,7 @@ st.divider() # Ek pyari si line
 
 # 6. Picture Setup (width=350 set kar diya hai mobile view ke liye)
 try:
-    st.image("our_picture.jpeg", width=350, caption="My absolute favorite memory of us! 📸✨")
+    st.image("our_picture.jpeg", caption="My absolute favorite memory of us! 📸✨")
 except:
     st.info("*(Note to you: Picture load nahi hui. Make sure GitHub par file ka naam exactly 'our_picture.jpg' hai!)*")
 
