@@ -43,13 +43,14 @@ st.markdown(floating_hearts_css, unsafe_allow_html=True)
 
 # 4. MAIN TITLES
 st.title("I Love You So Much! ❤️🥰")
+st.title("Namaste! ❤️🥰")
 st.subheader("I coded this special page just for you.")
 
 st.divider() 
 
 # 5. PICTURE SETUP (Safe loading ke sath)
 try:
-    st.image("our_picture.jpg", width=350, caption="My absolute favorite memory of us! 📸✨")
+    st.image("our_picture.jpeg", width=350, caption="You Changed Me Alot! 📸✨")
 except Exception as e:
     st.info("*(Note to you: Picture load nahi hui. Make sure GitHub par file ka naam exactly 'our_picture.jpg' hai!)*")
 
