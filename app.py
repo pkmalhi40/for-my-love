@@ -18,31 +18,28 @@ st.markdown(hack_code, unsafe_allow_html=True)
 
 # 3. Jaise hi page open hoga, balloons udenge!
 # === CUSTOM FLOATING HEARTS ANIMATION ===
-hearts_animation = """
+# === MAGICAL FLOATING HEARTS BACKGROUND ===
+st.markdown("""
 <style>
 .heart {
     position: fixed;
-    bottom: -10vh;
-    z-index: 9999;
-    animation: floatUp 4s linear forwards;
+    font-size: 2.5rem;
+    z-index: 99999;
+    pointer-events: none;
+    animation: floatUp infinite ease-in;
 }
 @keyframes floatUp {
-    0% { bottom: -10vh; transform: translateX(0) rotate(0deg); opacity: 1; }
-    100% { bottom: 110vh; transform: translateX(20px) rotate(360deg); opacity: 0; }
+    0% { bottom: -10%; opacity: 1; transform: translateX(0px) rotate(0deg) scale(1); }
+    100% { bottom: 120%; opacity: 0; transform: translateX(50px) rotate(360deg) scale(1.5); }
 }
 </style>
-<div class="heart" style="left: 10%; animation-delay: 0s; font-size: 2rem;">❤️</div>
-<div class="heart" style="left: 30%; animation-delay: 0.5s; font-size: 3rem;">💖</div>
-<div class="heart" style="left: 50%; animation-delay: 0.2s; font-size: 2.5rem;">💕</div>
-<div class="heart" style="left: 70%; animation-delay: 0.8s; font-size: 2rem;">💓</div>
-<div class="heart" style="left: 90%; animation-delay: 0.3s; font-size: 3rem;">💘</div>
-<div class="heart" style="left: 20%; animation-delay: 1.5s; font-size: 2rem;">💖</div>
-<div class="heart" style="left: 40%; animation-delay: 1.2s; font-size: 3rem;">❤️</div>
-<div class="heart" style="left: 60%; animation-delay: 1.8s; font-size: 2.5rem;">💕</div>
-<div class="heart" style="left: 80%; animation-delay: 1.1s; font-size: 2rem;">💗</div>
-"""
-st.markdown(hearts_animation, unsafe_allow_html=True)
-# ========================================
+<div class="heart" style="left: 10%; animation-duration: 4s; animation-delay: 0s;">❤️</div>
+<div class="heart" style="left: 30%; animation-duration: 5s; animation-delay: 1s;">💖</div>
+<div class="heart" style="left: 50%; animation-duration: 3.5s; animation-delay: 0.5s;">💕</div>
+<div class="heart" style="left: 70%; animation-duration: 4.5s; animation-delay: 2s;">💓</div>
+<div class="heart" style="left: 85%; animation-duration: 6s; animation-delay: 0.8s;">💘</div>
+""", unsafe_allow_html=True)
+# ==========================================
 
 # 4. The Main Message
 st.title("I Love You So Much! ❤️🥰")
