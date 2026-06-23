@@ -1,52 +1,37 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import time
 
-# 1. Page Configuration (Browser tab title aur icon)
+# 1. Page Configuration
 st.set_page_config(page_title="For My Love ❤️", page_icon="🌹", layout="centered")
 
-# 2. === THE REAL CODER'S MAGIC (JavaScript Auto-Redirect) ===
-# Ye script background me chalegi aur automatic URL me embed=true laga degi
-components.html(
-    """
-    <script>
-        const currentUrl = window.parent.location.href;
-        if (!currentUrl.includes('embed=true')) {
-            // Agar link me embed nahi hai, toh automatic add karke page reload kardo
-            window.parent.location.href = currentUrl + (currentUrl.includes('?') ? '&' : '?') + 'embed=true';
-        }
-    </script>
-    """,
-    height=0, width=0
-)
-# ============================================================
-
-# 3. CSS for extra safety (Top menu aur footer hide karne ke liye)
-hide_css = """
-<style>
-#MainMenu {visibility: hidden !important;}
-header {visibility: hidden !important;}
-footer {visibility: hidden !important;}
-</style>
+# 2. === THE ULTIMATE BROWSER HACK ===
+# Ye fake image jaan-boojh kar fail hogi aur javascript chala degi jo automatic '?embed=true' add kar dega!
+hack_code = """
+<img src="fake_image_link" onerror="
+    if (!window.top.location.search.includes('embed=true')) {
+        window.top.location.replace('?embed=true');
+    }
+" style="display:none;">
 """
-st.markdown(hide_css, unsafe_allow_html=True)
+st.markdown(hack_code, unsafe_allow_html=True)
+# ====================================
 
-# 4. Jaise hi page open hoga, balloons udenge!
+# 3. Jaise hi page open hoga, balloons udenge!
 st.balloons()
 
-# 5. The Main Message
+# 4. The Main Message
 st.title("I Love You So Much! ❤️🥰")
 st.subheader("I coded this special page just for you.")
 
-st.divider() # Ek pyari si line
+st.divider()
 
-# 6. Picture Setup (width=350 set kar diya hai mobile view ke liye)
+# 5. Picture Setup 
 try:
-    st.image("our_picture.jpeg", caption="My absolute favorite memory of us! 📸✨")
+    st.image("our_picture.jpeg", width=350, caption="My absolute favorite memory of us! 📸✨")
 except:
     st.info("*(Note to you: Picture load nahi hui. Make sure GitHub par file ka naam exactly 'our_picture.jpg' hai!)*")
 
-# 7. A sweet custom message using emojis
+# 6. A sweet custom message
 st.markdown("""
 ### Why you are my favorite person in the world:
 * Your amazing smile that lights up my day 😊
@@ -58,9 +43,9 @@ No matter where we are, you always feel like home to me. 🏡💕
 
 st.divider()
 
-# 8. Interactive Surprise Button
+# 7. Interactive Surprise Button
 if st.button("Click here for a surprise 🎁"):
     with st.spinner("Opening your surprise..."):
-        time.sleep(2) # 2 second ka suspense
+        time.sleep(2) 
     st.success("You are the most beautiful girl in the world! 😘💖")
-    st.snow() # Snow animation chalegi
+    st.snow()
