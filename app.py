@@ -4,21 +4,24 @@ import time
 # 1. Page Configuration
 st.set_page_config(page_title="For My Love ❤️", page_icon="🌹", layout="centered")
 
-# 2. === THE ULTIMATE BROWSER HACK ===
-# Ye fake image jaan-boojh kar fail hogi aur javascript chala degi jo automatic '?embed=true' add kar dega!
-hack_code = """
-<img src="fake_image_link" onerror="
-    if (!window.top.location.search.includes('embed=true')) {
-        window.top.location.replace('?embed=true');
-    }
-" style="display:none;">
+# 2. === THE ULTIMATE BADGE KILLER CSS ===
+hide_badge = """
+<style>
+#MainMenu {visibility: hidden !important;}
+footer {visibility: hidden !important;}
+header {visibility: hidden !important;}
+.viewerBadge_container {display: none !important;}
+.viewerBadge_link {display: none !important;}
+div[class^="viewerBadge"] {display: none !important;}
+iframe[title="Streamlit Community Cloud badge"] {display: none !important;}
+iframe[src^="https://share.streamlit.io"] {display: none !important;}
+</style>
 """
-st.markdown(hack_code, unsafe_allow_html=True)
-# ====================================
+st.markdown(hide_badge, unsafe_allow_html=True)
+# =====================================
 
-# 3. Jaise hi page open hoga, balloons udenge!
-# === CUSTOM FLOATING HEARTS ANIMATION ===
-# === MAGICAL FLOATING HEARTS BACKGROUND ===
+# 3. === MAGICAL FLOATING HEARTS BACKGROUND ===
+# (Yahan st.balloons() ko hata kar hearts lagaye gaye hain)
 st.markdown("""
 <style>
 .heart {
@@ -43,18 +46,17 @@ st.markdown("""
 
 # 4. The Main Message
 st.title("I Love You So Much! ❤️🥰")
-st.title("Namaste ❤️💕"
 st.subheader("I coded this special page just for you.")
 
-st.divider()
+st.divider() 
 
 # 5. Picture Setup 
 try:
-    st.image("our_picture.jpeg", width=350, caption="My absolute favorite memory of us! 📸✨")
+    st.image("our_picture.jpg", width=350, caption="My absolute favorite memory of us! 📸✨")
 except:
     st.info("*(Note to you: Picture load nahi hui. Make sure GitHub par file ka naam exactly 'our_picture.jpg' hai!)*")
 
-# 6. A sweet custom message
+# 6. A sweet custom message using emojis
 st.markdown("""
 ### Why you are my favorite person in the world:
 * Your amazing smile that lights up my day 😊
@@ -62,12 +64,6 @@ st.markdown("""
 * You are my best friend and my everything 🌟
 
 No matter where we are, you always feel like home to me. 🏡💕
-""")
-st.markdown("""
-### 💻 System Status: Heart.exe
-* **Status:** 100% completely hacked by your smile.
-* **Server Response:** My heart only beats for your requests.
-* **Storage:** Unlimited space, reserved only for you. ❤️
 """)
 
 st.divider()
@@ -77,4 +73,4 @@ if st.button("Click here for a surprise 🎁"):
     with st.spinner("Opening your surprise..."):
         time.sleep(2) 
     st.success("You are the most beautiful girl in the world! 😘💖")
-    st.snow()
+    st.snow() # Button click par snow giregi
