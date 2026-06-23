@@ -18,7 +18,7 @@ st.divider() # Adds a nice horizontal line
 try:
     st.image("our_picture.jpg", caption="My absolute favorite memory of us! 📸✨")
 except:
-    st.info("*(Note to you: Put an image named 'our_picture.jpg' in the folder to see it here!)*")
+    st.info("*(Note to you: Put an image named 'our_picture.jpeg' in the folder to see it here!)*")
 
 # 5. A sweet custom message using emojis
 st.markdown("""
