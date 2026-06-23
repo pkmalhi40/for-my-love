@@ -16,7 +16,7 @@ st.divider() # Adds a nice horizontal line
 # 4. Add your favorite picture
 # Make sure "our_picture.jpg" is in the same folder as this script.
 try:
-    st.image("our_picture.jpeg", caption="My absolute favorite memory of us! 📸✨")
+    st.image("our_picture.jpeg", caption="You Changed Me Alot! 📸✨")
 except:
     st.info("*(Note to you: Put an image named 'our_picture.jpeg' in the folder to see it here!)*")
 
