@@ -17,10 +17,11 @@ st.markdown(hack_code, unsafe_allow_html=True)
 # ====================================
 
 # 3. Jaise hi page open hoga, balloons udenge!
-st.balloons()
+st.hearts()
 
 # 4. The Main Message
 st.title("I Love You So Much! ❤️🥰")
+st.title("Namaste ❤️💕"
 st.subheader("I coded this special page just for you.")
 
 st.divider()
