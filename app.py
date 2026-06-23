@@ -77,9 +77,9 @@ st.write("---")
 # 5. THE APOLOGY MESSAGE
 st.markdown("""
 ### Please forgive me... 🥺
-Mujhse galti ho gayi. Tumhare bina sab kuch adhoora lagta hai. 
-Main janta hoon maine tumhe hurt kiya, par mera intention kabhi wo nahi tha.
-Tum meri smile ho, meri best friend ho, aur mera sab kuch ho.
+Mujhse galti ho gayi. Ap k  bina sab kuch adhoora lagta hai. 
+Main janta hoon maine ap ka hurt kiya, par mera intention kabhi wo nahi tha.
+Ap meri smile ho, meri best friend ho, aur mera sab kuch ho.
 
 **Meri is galti ko chota sa samajh kar maaf kar do na? Please?** 🙏
 """)
