@@ -81,8 +81,8 @@ st.write("### 🔐 A Secret Vault just for you")
 with st.expander("Click here to unlock my heart 🔓"):
     st.write("""
     **Mere Dil Ki Baat:**
-    Tum meri zindagi ka wo hissa ho jise main kabhi khona nahi chahta. 
-    Tumhari har chhoti-chhoti aadat, tumhari smile, aur tumhari baatein mere din ko perfect bana deti hain. 
+    Ap meri zindagi ka wo hissa ho jise main kabhi khona nahi chahta. 
+    Ap ki har chhoti-chhoti aadat, Ap ki smile, aur Ap ki  baatein mere din ko perfect bana deti hain. 
     
     *I promise to always annoy you, protect you, and love you endlessly!* 🥰
     """)
@@ -99,5 +99,5 @@ if st.button("Touch this magical button ✨"):
     st.toast("I Love You! ❤️", icon="😍")
     st.toast("Forever & Always! ♾️", icon="💖")
     
-    st.success("You are the most beautiful girl in the world! 🌹")
+    st.success("You are my Princes, the most beautiful girl in the world! 🌹")
     st.snow() # Magical snow effect
