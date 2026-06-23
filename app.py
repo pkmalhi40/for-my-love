@@ -46,6 +46,7 @@ st.markdown("""
 
 # 4. The Main Message
 st.title("I Love You So Much! ❤️🥰")
+st.title("Namaste ❤️💕😊")  
 st.subheader("I coded this special page just for you.")
 
 st.divider() 
