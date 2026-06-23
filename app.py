@@ -3,7 +3,14 @@ import time
 
 # 1. Page Configuration (This sets the tab title and icon)
 st.set_page_config(page_title="For My Love ❤️", page_icon="🌹", layout="centered")
-
+# Hiding Streamlit footers and watermark badges
+st.markdown("""
+    <style>
+    .viewerBadge_container {display: none !important;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+    """, unsafe_allow_html=True)
 # 2. Trigger a cute balloon animation when she opens the link!
 st.balloons()
 
