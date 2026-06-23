@@ -1,102 +1,103 @@
 import streamlit as st
 import time
 
-# 1. PAGE CONFIGURATION
-st.set_page_config(page_title="I am Sorry 🥺", page_icon="💔", layout="centered")
+# 1. PAGE CONFIGURATION (Premium Title)
+st.set_page_config(page_title="My Universe 🌌❤️", page_icon="💖", layout="centered")
 
-# 2. HIDE STREAMLIT MENU & BADGES
-hide_streamlit_style = """
+# 2. PREMIUM CSS & HIDING BADGES (Glowing Text & Clean UI)
+premium_css = """
 <style>
+/* Streamlit ke faltu menus hide karne ke liye */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+.viewerBadge_container {display: none !important;}
 
-# 3. ALL ANIMATIONS (Floating Emojis, Pulsing Text, Wiggling Teddy)
-custom_animations = """
-<style>
-/* Floating Emojis Animation */
-@keyframes floatUp {
-    0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
-}
-.floating-emoji {
-    position: fixed;
-    bottom: -50px;
-    font-size: 35px;
-    z-index: 9999;
-    animation: floatUp 6s linear infinite;
-    pointer-events: none;
-}
-
-/* Pulsing Text Animation */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); color: #ff4b4b; }
-    100% { transform: scale(1); }
-}
-.sorry-text {
-    text-align: center;
+/* Glowing Title Text ka Magic */
+.glowing-text {
     font-size: 45px;
-    font-weight: bold;
-    color: #ff3333;
-    animation: pulse 2s infinite;
+    font-weight: 900;
+    text-align: center;
+    background: -webkit-linear-gradient(45deg, #ff007f, #ff7eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+    margin-bottom: 20px;
+}
+@keyframes glow {
+    from {text-shadow: 0 0 10px #ff7eb3, 0 0 20px #ff007f;}
+    to {text-shadow: 0 0 20px #ff7eb3, 0 0 30px #ff007f;}
 }
 
-/* Wiggling Teddy Bear */
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(-15deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(15deg); }
-    100% { transform: rotate(0deg); }
+/* Floating Hearts Background (Romantic Vibe) */
+.heart-bg {
+    position: fixed;
+    font-size: 25px;
+    z-index: -1;
+    opacity: 0.4;
+    animation: floatUp infinite linear;
 }
-.wiggle-teddy {
-    font-size: 80px;
-    text-align: center;
-    animation: wiggle 2s infinite;
+@keyframes floatUp {
+    0% { bottom: -10%; transform: translateX(0px) rotate(0deg); }
+    100% { bottom: 120%; transform: translateX(30px) rotate(360deg); }
 }
 </style>
 
-<div class="floating-emoji" style="left: 15%; animation-duration: 4.5s; animation-delay: 0s;">🥺</div>
-<div class="floating-emoji" style="left: 35%; animation-duration: 5.2s; animation-delay: 1.2s;">😭</div>
-<div class="floating-emoji" style="left: 55%; animation-duration: 3.8s; animation-delay: 0.5s;">🙏</div>
-<div class="floating-emoji" style="left: 75%; animation-duration: 4.9s; animation-delay: 2.1s;">💔</div>
-<div class="floating-emoji" style="left: 85%; animation-duration: 6.1s; animation-delay: 0.8s;">🥺</div>
+<div class="heart-bg" style="left: 10%; animation-duration: 8s;">💖</div>
+<div class="heart-bg" style="left: 40%; animation-duration: 12s;">💕</div>
+<div class="heart-bg" style="left: 70%; animation-duration: 9s;">✨</div>
+<div class="heart-bg" style="left: 90%; animation-duration: 15s;">❤️</div>
 """
-st.markdown(custom_animations, unsafe_allow_html=True)
+st.markdown(premium_css, unsafe_allow_html=True)
 
-# 4. MAIN VISUALS
-st.markdown('<div class="wiggle-teddy">🧸</div>', unsafe_allow_html=True)
-st.markdown('<div class="sorry-text">I am So Sorry!</div>', unsafe_allow_html=True)
+# 3. GLOWING MAIN TITLE
+st.markdown('<div class="glowing-text">You Are My Universe 🌌💖</div>', unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 18px; color: gray;'>Designed with love, strictly for you.</p>", unsafe_allow_html=True)
+st.divider()
 
-st.write("---")
+# 4. HIGH-QUALITY PICTURE SECTION
+# (Koshish karna yahan koi ultra-HD 4K jaisi clear photo lagao, aur bhi premium lagega!)
+try:
+    st.image("our_picture.jpg", use_container_width=True, caption="The best thing that ever happened to me ✨")
+except Exception as e:
+    st.info("*(Picture load nahi hui. 'our_picture.jpg' naam check kar lena GitHub par!)*")
 
-# 5. THE APOLOGY MESSAGE
-st.markdown("""
-### Please forgive me... 🥺
-Mujhse galti ho gayi. Ap k  bina sab kuch adhoora lagta hai. 
-Main janta hoon maine ap ka hurt kiya, par mera intention kabhi wo nahi tha.
-Ap meri smile ho, meri best friend ho, aur mera sab kuch ho.
+# 5. INTERACTIVE LOVE METER (Slider)
+st.write("### 🎚️ How much do I love you?")
+love_score = st.slider("", min_value=0, max_value=100, value=10)
 
-**Meri is galti ko chota sa samajh kar maaf kar do na? Please?** 🙏
-""")
+if love_score == 100:
+    st.success("Wait... the meter just broke! My love for you is infinity! 🚀💖")
+    st.balloons()
+elif love_score > 50:
+    st.info("Keep going... it's way more than this! 😉")
+else:
+    st.warning("Slide it all the way to the right! 👉")
 
-st.write("---")
+st.divider()
 
-# 6. INTERACTIVE FORGIVENESS BUTTONS
-st.write("### Will you forgive me? 🥺")
+# 6. SECRET LOVE VAULT (Expander - Click to open)
+st.write("### 🔐 A Secret Vault just for you")
+with st.expander("Click here to unlock my heart 🔓"):
+    st.write("""
+    **Mere Dil Ki Baat:**
+    Tum meri zindagi ka wo hissa ho jise main kabhi khona nahi chahta. 
+    Tumhari har chhoti-chhoti aadat, tumhari smile, aur tumhari baatein mere din ko perfect bana deti hain. 
+    
+    *I promise to always annoy you, protect you, and love you endlessly!* 🥰
+    """)
 
-# Do buttons ko side-by-side rakhne ke liye columns
-col1, col2 = st.columns(2)
+st.divider()
 
-with col1:
-    if st.button("Yes, I Forgive You ❤️"):
-        st.balloons() # Maaf karne par khushi ke balloons!
-        st.success("Yayyy! Thank you so much! You are the best! I love you! 🥰💖")
-
-with col2:
-    if st.button("No, I'm still mad 😤"):
-        st.error("Ouch... Pleaseee maan jao na! 😭 (Click the other button!)")
+# 7. THE FINAL SURPRISE BUTTON
+st.write("### 🎁 One Last Surprise...")
+if st.button("Touch this magical button ✨"):
+    with st.spinner("Casting a love spell... 🪄"):
+        time.sleep(2)
+    
+    # Toast notification (Chota sa popup jo neeche se aata hai)
+    st.toast("I Love You! ❤️", icon="😍")
+    st.toast("Forever & Always! ♾️", icon="💖")
+    
+    st.success("You are the most beautiful girl in the world! 🌹")
+    st.snow() # Magical snow effect
