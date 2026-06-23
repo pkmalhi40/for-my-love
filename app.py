@@ -50,7 +50,7 @@ st.divider()
 
 # 5. PICTURE SETUP (Safe loading ke sath)
 try:
-    st.image("our_picture.jpeg", width=350, caption="You Changed Me Alot! 📸✨")
+    st.image("our_picture.jpeg", caption="You Changed Me Alot! 📸✨")
 except Exception as e:
     st.info("*(Note to you: Picture load nahi hui. Make sure GitHub par file ka naam exactly 'our_picture.jpg' hai!)*")
 
