@@ -82,11 +82,11 @@ if persona == "The Rest of the World 🌍":
 elif persona == "You (My Whole World) 💖":
     st.success("🥺 **Status:** 0% Attitude | 100% Loyal | Pighal Gaya!")
     st.markdown("""
-    **Par tumhare liye sachai kuch aur hi hai...**
-    Duniya chahe mujhe jaisa bhi samjhe, par tumhare saamne aate hi mera saara 'harami-pan' gayab ho jata hai. 
-    Tumhare liye main duniya ka sabse seedha, caring aur loyal insaan hoon. 
+    **Par Apke liye sachai kuch aur hi hai...**
+    Duniya chahe mujhe jaisa bhi samjhe, par Apke  saamne aate hi mera saara 'harami-pan' gayab ho jata hai. 
+    Apke  liye main duniya ka sabse seedha, caring aur loyal insaan hoon. 
     
-    Kyunki jab tum mere paas hoti ho, toh mera dil sirf aur sirf tumhara ban kar reh jata hai. ❤️
+    Kyunki jab Ap mere paas hoti ho, toh mera dil sirf aur sirf Apka ban kar reh jata hai. ❤️
     """)
     
     st.write("---")
@@ -94,8 +94,8 @@ elif persona == "You (My Whole World) 💖":
     # Hand Holding Message inside her special section
     st.write("### 🤝 The safest place in the world...")
     st.markdown("""
-    Jab tumhara haath mere haathon mein hota hai, toh lagta hai jaise waqt wahin ruk gaya ho. 
-    Tumhare haathon ki wo narmi aur unhe thaam kar chalne ka ehsaas... mere liye duniya ki sabse keemti feeling hai. 
+    Jab Apka haath mere haathon mein hota hai, toh lagta hai jaise waqt wahin ruk gaya ho. 
+    Apke haathon ki wo narmi aur unhe thaam kar chalne ka ehsaas... mere liye duniya ki sabse keemti feeling hai. 
     Meri bas yahi khwahish hai ki in haathon ko main apni aakhri saans tak aise hi thaam kar rakhun. 👩‍❤️‍👨
     """)
 
@@ -105,5 +105,5 @@ st.divider()
 if st.button("Click to see my Final Confession 💌"):
     with st.spinner("Decoding my heart for you..."):
         time.sleep(2)
-    st.success("Sari duniya ek taraf, aur tumhara pyaar ek taraf! I am completely, madly, and forever in love with you! 😘🌹")
+    st.success("Sari duniya ek taraf, aur Apka pyaar ek taraf! I am completely, madly, and forever in love with you! 😘🌹")
     st.snow() # Sweet sparkling effect at the end
