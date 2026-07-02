@@ -1,109 +1,133 @@
 import streamlit as st
-import time
+import streamlit.components.v1 as components
 
-# 1. PAGE CONFIGURATION
-st.set_page_config(page_title="Only Yours 🥺❤️", page_icon="💖", layout="centered")
+# Screen ka layout set karna
+st.set_page_config(page_title="A Special Question...", layout="wide")
 
-# 2. HIDE STREAMLIT BADGES & EXTRA MENUS
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-.viewerBadge_container {display: none !important;}
-</style>
+# Custom HTML, CSS, aur JavaScript jo magic karega
+romantic_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color: #ffe6e6;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+        }
+        h1 {
+            color: #ff4d4d;
+            font-size: 3em;
+            margin-bottom: 50px;
+        }
+        .btn {
+            font-size: 24px;
+            padding: 15px 40px;
+            margin: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background-color: #ff4d4d;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+        }
+        #yesBtn:hover {
+            background-color: #ff1a1a;
+            transform: scale(1.1);
+        }
+        #noBtn {
+            background-color: #cccccc;
+            color: black;
+            position: absolute; /* Ye zaroori hai bhaagne ke liye */
+        }
+        #animation-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffe6e6;
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #animation-container h1 {
+            font-size: 5em;
+            animation: heartbeat 1s infinite alternate;
+        }
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        .heart {
+            color: red;
+            font-size: 40px;
+            position: absolute;
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-content">
+        <h1>Payal, will you marry me? 💍</h1>
+        
+        <button id="yesBtn" onclick="sayYes()">Yes! ❤️</button>
+        <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No 😢</button>
+    </div>
+
+    <div id="animation-container">
+        <h1>I LOVE YOU TOO! 💖🎉</h1>
+    </div>
+
+    <script>
+        function moveNoButton() {
+            var btn = document.getElementById('noBtn');
+            // Screen ki width aur height ke hisab se random position nikalna
+            var x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            var y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function sayYes() {
+            document.getElementById('main-content').style.display = 'none';
+            var animContainer = document.getElementById('animation-container');
+            animContainer.style.display = 'flex';
+
+            // Barish wale hearts banana
+            for (let i = 0; i < 50; i++) {
+                let heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                animContainer.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
 """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# 3. FLOATING HEARTS BACKGROUND (Continuous Romantic Vibe)
-hearts_bg = """
-<style>
-.heart-bg {
-    position: fixed;
-    font-size: 28px;
-    z-index: -1;
-    opacity: 0.6;
-    animation: floatUp infinite linear;
-}
-@keyframes floatUp {
-    0% { bottom: -10%; transform: translateX(0px) rotate(0deg) scale(1); }
-    100% { bottom: 120%; transform: translateX(40px) rotate(360deg) scale(1.5); }
-}
-</style>
-<div class="heart-bg" style="left: 10%; animation-duration: 6s; animation-delay: 0s;">❤️</div>
-<div class="heart-bg" style="left: 30%; animation-duration: 8s; animation-delay: 2s;">💖</div>
-<div class="heart-bg" style="left: 50%; animation-duration: 5s; animation-delay: 1s;">💕</div>
-<div class="heart-bg" style="left: 70%; animation-duration: 7s; animation-delay: 3s;">💓</div>
-<div class="heart-bg" style="left: 85%; animation-duration: 9s; animation-delay: 0.5s;">💘</div>
-"""
-st.markdown(hearts_bg, unsafe_allow_html=True)
-
-# 4. GLOWING HEADING CSS
-glowing_text_css = """
-<style>
-.glow-text {
-    font-size: 40px;
-    font-weight: 900;
-    text-align: center;
-    background: -webkit-linear-gradient(45deg, #ff3366, #ff9933);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glow 2s ease-in-out infinite alternate;
-}
-@keyframes glow {
-    from {text-shadow: 0 0 5px #ff9933, 0 0 10px #ff3366;}
-    to {text-shadow: 0 0 15px #ff9933, 0 0 25px #ff3366;}
-}
-</style>
-"""
-st.markdown(glowing_text_css, unsafe_allow_html=True)
-
-# --- MAIN APP UI STARTS HERE ---
-
-st.markdown('<div class="glow-text">The Two Sides of Me 🎭❤️</div>', unsafe_allow_html=True)
-st.write("")
-
-# 5. THE PERSONALITY SWITCH (Interactive Radio Buttons)
-st.write("### 🔍 Select who I am talking to:")
-persona = st.radio("", ["The Rest of the World 🌍", "You (My Whole World) 💖"], index=0)
-
-st.divider()
-
-# 6. DYNAMIC CONTENT BASED ON SELECTION
-if persona == "The Rest of the World 🌍":
-    st.error("😎 **Status:** 100% Attitude | Careless | Thoda Harami")
-    st.markdown("""
-    **Duniya ke liye mera rule simple hai:**
-    Mujhe kisi ki parwah nahi hai. Main jaisa bhi hoon, thoda harami, thoda badtameez, aur apne dosto ke sath bilkul careless. 
-    Duniya ke samne mera koi 'soft' version nahi hai. Jo bhi hai, yahi hai! 🤷‍♂️
-    """)
-    st.info("*(Now click on the 2nd option to see the truth...)*")
-
-elif persona == "You (My Whole World) 💖":
-    st.success("🥺 **Status:** 0% Attitude | 100% Loyal | Pighal Gaya!")
-    st.markdown("""
-    **Par Apke liye sachai kuch aur hi hai...**
-    Duniya chahe mujhe jaisa bhi samjhe, par Apke  saamne aate hi mera saara 'harami-pan' gayab ho jata hai. 
-    Apke  liye main duniya ka sabse seedha, caring aur loyal insaan hoon. 
-    
-    Kyunki jab Ap mere paas hoti ho, toh mera dil sirf aur sirf Apka ban kar reh jata hai. ❤️
-    """)
-    
-    st.write("---")
-    
-    # Hand Holding Message inside her special section
-    st.write("### 🤝 The safest place in the world...")
-    st.markdown("""
-    Jab Apka haath mere haathon mein hota hai, toh lagta hai jaise waqt wahin ruk gaya ho. 
-    Apke haathon ki wo narmi aur unhe thaam kar chalne ka ehsaas... mere liye duniya ki sabse keemti feeling hai. 
-    Meri bas yahi khwahish hai ki in haathon ko main apni aakhri saans tak aise hi thaam kar rakhun. 👩‍❤️‍👨
-    """)
-
-st.divider()
-
-# 7. FINAL LOVE BUTTON
-if st.button("Click to see my Final Confession 💌"):
-    with st.spinner("Decoding my heart for you..."):
-        time.sleep(2)
-    st.success("Sari duniya ek taraf, aur Apka pyaar ek taraf! I am completely, madly, and forever in love with you! 😘🌹")
-    st.snow() # Sweet sparkling effect at the end
+# HTML ko Streamlit mein poori screen par dikhana
+components.html(romantic_html, height=700, scrolling=False)
