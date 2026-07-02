@@ -95,7 +95,7 @@ romantic_html = """
     </div>
 
     <div id="animation-container">
-        <h1>I LOVE YOU TOO! 💖🎉</h1>
+        <h1>I LOVE YOU! 💖🎉</h1>
     </div>
 
     <script>
